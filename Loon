@@ -15,6 +15,14 @@ interface-mode = auto
 [Remote Proxy]
 
 [Proxy Group]
+Manual = select,Auto,Scene,Fallback,LoadBalance,China,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/manual.png
+Scene = ssid,default=Fallback,cellular=Auto,"ChinaNet-FsbJ-5G"=Auto,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/ssid.png
+Auto = url-test,JP_Filter,url = http://www.gstatic.com/generate_204,interval = 600,tolerance = 5000,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/speedtest.png
+Fallback = fallback,HK_Filter,url = http://www.gstatic.com/generate_204,interval = 600,max-timeout = 5000,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/auto.png
+LoadBalance = load-balance,US_Filter,DE_Filter,AU_Filter,url = http://www.gstatic.com/generate_204,interval = 600,max-timeout = 5000,algorithm = random,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/team.png
+Final = select,Manual,China,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/final.png
+China = select,DIRECT,Manual,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+ADBlock = select,REJECT,DIRECT,REJECT-IMG,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/adblock.png
 
 [Remote Filter]
 HK_Filter = NameRegex,Shadowsocks, FilterKey = "hk2"
@@ -24,9 +32,6 @@ DE_Filter = NameRegex,Shadowsocks, FilterKey = "de"
 AU_Filter = NameRegex,Shadowsocks, FilterKey = "au"
 
 [Rule]
-DOMAIN,connectivitycheck.gstatic.com,Manual
-DOMAIN-SUFFIX,shadowsocks.nz,Manual
-DOMAIN,s.trojanflare.com,Manual
 #Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR
 #Strategy:DIRECT,PROXY,REJECT
 #Options:no-resolve(only for IP-CIDR,IP-CIDR2,GEOIP,IP-ASN)
@@ -35,12 +40,11 @@ GEOIP,cn,DIRECT
 FINAL,Final
 
 [Remote Rule]
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Global/Global_Domain.list, policy=Manual, tag=Global, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/China/China_Domain.list, policy=China, tag=China, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Apple/Apple.list, policy=China, tag=Apple, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Telegram/Telegram.list, policy=Manual, tag=Telegram, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Google/Google.list, policy=Manual, tag=Google, enabled=true
-https://github.com/scomper/surge-list/raw/master/reject.list, policy=ADBlock, tag=Advertising, enabled=true
+https://raw.githubusercontent.com/jianoliu/Loon/master/Apple.list, policy=China, tag=Apple, enabled=true
+https://raw.githubusercontent.com/jianoliu/Loon/master/China_Domain.list, policy=China, tag=China, enabled=true
+https://raw.githubusercontent.com/jianoliu/Loon/master/Telegram.list, policy=Manual, tag=Telegram, enabled=true
+https://raw.githubusercontent.com/jianoliu/Loon/master/Global_Domain.list, policy=Manual, tag=Global, enabled=true
+https://raw.githubusercontent.com/jianoliu/Loon/master/Advertising.list, policy=ADBlock, tag=Advertising, enabled=true
 
 [Rewrite]
 ^https?:\/\/(www.)?(g|google)\.cn 302 https://www.google.com
