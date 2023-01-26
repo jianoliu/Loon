@@ -1,4 +1,5 @@
 # NAME: Global
+DOMAIN-SUFFIX,criteo.com
 DOMAIN-SUFFIX,app-measurement.com
 DOMAIN,connectivitycheck.gstatic.com
 DOMAIN-SUFFIX,shadowsocks.nz
