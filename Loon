@@ -13,6 +13,7 @@ interface-mode = auto
 [Proxy]
 
 [Remote Proxy]
+SS = https://example/server-complete.txt
 
 [Proxy Group]
 Manual = select,Auto,Scene,Fallback,LoadBalance,China,img-url = https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/icon/color/manual.png
