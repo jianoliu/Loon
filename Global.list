@@ -1,7 +1,6 @@
 # NAME: Global
-DOMAIN-SUFFIX,criteo.net
+DOMAIN-KEYWORD,criteo
 DOMAIN-SUFFIX,krxd.net
-DOMAIN-SUFFIX,criteo.com
 DOMAIN-SUFFIX,app-measurement.com
 DOMAIN,connectivitycheck.gstatic.com
 DOMAIN-SUFFIX,shadowsocks.nz
